@@ -3,26 +3,31 @@ package utilities;
 import java.util.Scanner;
 
 public class Utilities {
-	
-	private static Scanner scanner = new Scanner(System.in);
 
+	public static Scanner scanner = new Scanner(System.in);
+
+	// Eingabe einer Zahl inkl. Fehlerbehandlung
 	public static int readInt(String prompt) {
 
 		int result = 0;
-		boolean test = false;
+		boolean zahl = false;
 
-		while (test == false) {
+		while (zahl == false) {
 			try {
 				System.out.print(prompt);
 				result = scanner.nextInt();
-				test = true;
+				zahl = true;
 			} catch (Exception ex) {
 				System.out.println("Bitte geben Sie eine Zahl ein! ");
-				scanner.nextLine();
 			}
+			scanner.nextLine();
 		}
 
 		return result;
 	}
 
+	public static String readString(String prompt) {
+		System.out.print(prompt);
+		return scanner.nextLine();
+	}
 }
